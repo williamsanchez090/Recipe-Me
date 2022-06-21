@@ -1,9 +1,5 @@
 # Recipe Me Full-stack application using express Node.js and MongoDB
 
-This was created as part of YouTube Video. Links below
-
-UPDATE THIS
-
 ## IMPORTANT:Be sure to create .env file s that your Database works
 Create a .env file to store your MongoDB database credentials
 
