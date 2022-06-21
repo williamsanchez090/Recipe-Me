@@ -43,3 +43,7 @@ a { color: var(--bs-dark); }
   width: 100%;
   object-fit: cover;
 }
+#wes {
+  width:786px;
+  height: 328px;
+}
