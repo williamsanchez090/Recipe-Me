@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/101963767/174923737-5f7647ff-a876-4f57-bbf8-620ad06b3b43.png)
+
 # Recipe Me Full-stack application using express Node.js and MongoDB
 
 ## IMPORTANT:Be sure to create .env file s that your Database works
