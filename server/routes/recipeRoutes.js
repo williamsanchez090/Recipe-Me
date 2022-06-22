@@ -5,6 +5,7 @@ var passport = require('passport');
 var session      = require('express-session');
 var flash    = require('connect-flash');
 
+
 /**
  * App Routes 
 */
@@ -19,8 +20,11 @@ router.get('/explore-latest', recipeController.exploreLatest);
 router.get('/explore-random', recipeController.exploreRandom);
 router.get('/submit-recipe', recipeController.submitRecipe);
 router.post('/submit-recipe', recipeController.submitRecipeOnPost);
+// configuration ===============================================================
 
+require('../../config/passport')(passport); // pass passport for configuration
 // required for passport
+
 router.use(session({
     secret: 'rcbootcamp2021b', // session secret
     resave: true,
