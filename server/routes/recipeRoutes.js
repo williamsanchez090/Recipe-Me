@@ -2,10 +2,16 @@ const express = require('express');
 const router = express.Router();
 const recipeController = require('../controllers/recipeController');
 var passport = require('passport');
-var session      = require('express-session');
-var flash    = require('connect-flash');
-
-
+var session = require('express-session');
+var flash = require('connect-flash');
+const mongoose = require('mongoose');
+const ObjectId = require('mongodb').ObjectId;
+var db
+mongoose.connect(process.env.MONGODB_URI, (err, database) => {
+  if (err) return console.log(err)
+  db = database
+  
+}); // connect to our database
 /**
  * App Routes 
 */
@@ -43,7 +49,7 @@ router.use(flash()); // use connect-flash for flash messages stored in session
   
     // process the login form
     router.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/home', // redirect to the secure profile section
+    successRedirect : '/', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
@@ -56,7 +62,7 @@ router.use(flash()); // use connect-flash for flash messages stored in session
   
     // process the signup form
     router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/home', // redirect to the secure profile section
+        successRedirect : '/', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
@@ -83,7 +89,7 @@ function isLoggedIn(req, res, next) {
 }
 
   // PROFILE SECTION =========================
-  router.get('/home', isLoggedIn, function(req, res) {
+  router.get('/', isLoggedIn, function(req, res) {
     db.collection('posts').find({postedBy: req.user._id}).toArray((err, result) => {
       if (err) return console.log(err)
       res.render('index.ejs', {
@@ -92,6 +98,7 @@ function isLoggedIn(req, res, next) {
       })
     })
 });
+
 //feed page
 router.get('/feed', function(req, res) {
   db.collection('posts').find().toArray((err, result) => {

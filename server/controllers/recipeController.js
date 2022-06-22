@@ -11,11 +11,12 @@ exports.homepage = async(req, res) => {
     const limitNumber = 5;
     const categories = await Category.find({}).limit(limitNumber);
     const latest = await Recipe.find({}).sort({_id: -1}).limit(limitNumber);
-    const japanese = await Recipe.find({ 'category': 'Japanese' }).limit(limitNumber);
+    const italian = await Recipe.find({ 'category': 'Italian' }).limit(limitNumber);
     const american = await Recipe.find({ 'category': 'American' }).limit(limitNumber);
-    const chinese = await Recipe.find({ 'category': 'Chinese' }).limit(limitNumber);
+    const asian = await Recipe.find({ 'category': 'Asian' }).limit(limitNumber);
+    const indian = await Recipe.find({ 'category': 'Indian' }).limit(limitNumber);
 
-    const food = { latest, japanese, american, chinese };
+    const food = { latest, italian, american, asian, indian };
 
     res.render('index', { title: 'Recipe Me - Home', categories, food } );
   } catch (error) {
@@ -177,7 +178,7 @@ exports.submitRecipeOnPost = async(req, res) => {
 // delete Recipe
 // async function deleteRecipe(){
 //   try {
-//     await Recipe.deleteOne({ name: 'Rick' });
+//     await Recipe.deleteOne({ name: 'pizza' });
 //   } catch (error) {
 //     console.log(error);
 //   }
