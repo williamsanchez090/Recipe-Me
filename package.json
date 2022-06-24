@@ -1,7 +1,7 @@
 {
   "name": "cookingblog",
   "version": "1.0.0",
-  "description": "This was created as part of YouTube Video. Links below",
+  "description": "Recipe-me",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
