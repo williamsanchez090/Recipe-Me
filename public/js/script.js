@@ -7,4 +7,4 @@ addIngredientsBtn.addEventListener('click', function(){
   let input = newIngredients.getElementsByTagName('input')[0];
   input.value = '';
   ingredientList.appendChild(newIngredients);
-});
+}); 

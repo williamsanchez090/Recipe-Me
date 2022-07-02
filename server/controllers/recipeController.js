@@ -178,11 +178,11 @@ exports.submitRecipeOnPost = async(req, res) => {
 // delete Recipe
 // async function deleteRecipe(){
 //   try {
-//     await Recipe.deleteOne({ name: 'Bacon Burger' });
+//     await Recipe.deleteOne({ name: 'Burger' });
 //   } catch (error) {
 //     console.log(error);
 //   }
 // }
 // deleteRecipe();
 
-
+ 

@@ -34,7 +34,7 @@ a { color: var(--bs-dark); }
   overflow: hidden;
   border-radius: 8px;
 }
-
+ 
 .category__img--large {
   height: 330px;
 }
