@@ -35,9 +35,10 @@ require('./config/passport')(passport); // pass passport for configuration
 const routes = require('./server/routes/recipeRoutes.js')
 app.use('/', routes);
 
-app.listen(port, ()=> console.log(`Listening to port ${port}`));
+// app.listen(port, ()=> console.log(`Listening to port ${port}`));
 // logout
 // app.get('/logout', function(req, res) {
 //   req.logout();
 //   res.redirect('/index');
 // });
+app.listen(process.env.PORT || 3000)
